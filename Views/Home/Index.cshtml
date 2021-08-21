@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id da vaga
+            </th>
+            <th>
+                Vaga
+            </th>
+            <th>
+                Descrição da vaga
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vaga in (List<Vaga>)ViewBag.Vagas) {
+        <tr>
+            <td>
+                @vaga.vagaId
+            </td>
+            <td>
+                @vaga.nomeVaga
+            </td>
+            <td>
+                @vaga.descricaoVaga
+            </td>
+        </tr>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                candidato id
+            </th>
+            <th>
+                nome do candidato
+            </th>
+            <th>
+                estado civil
+            </th>
+            <th>
+                genero
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var candidato in (List<Candidato>)ViewBag.Candidatos) {
+        <tr>
+            <td>
+                @candidato.CandidatoId
+            </td>
+            <td>
+                @candidato.NomeCandidato
+            </td>
+            <td>
+                @candidato.estado_civil
+            </td>
+            <td>
+                @candidato.genero
+            </td>
+        </tr>
+}
+
+    </tbody>
+</table>
