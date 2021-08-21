@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Aplicação_mvc_Principal
 {
-   
+
     public class Program
     {
         public static string ApiHost;

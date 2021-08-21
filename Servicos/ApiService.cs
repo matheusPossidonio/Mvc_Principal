@@ -12,11 +12,12 @@ namespace Aplicação_mvc_Principal.Servicos
     public static async Task<List<Vaga>> GetVagas()
     {
       HttpClient http = new HttpClient();
-      var response = await http.GetAsync($"{Program.ApiHost}/Vagas");
+      var response = await http.GetAsync("https://localhost:8080/Vagas");
       if(response.IsSuccessStatusCode)
       {
         var resultado = response.Content.ReadAsStringAsync().Result;
         var vagas = JsonConvert.DeserializeObject<List<Vaga>>(resultado);
+        return vagas;
       }
 
       return new List<Vaga>();
@@ -31,6 +32,7 @@ namespace Aplicação_mvc_Principal.Servicos
       {
         var resultado = response.Content.ReadAsStringAsync().Result;
         var candidatos = JsonConvert.DeserializeObject<List<Candidato>>(resultado);
+        return candidatos;
       }
 
       return new List<Candidato>();
