@@ -3,14 +3,13 @@ using System;
 
 namespace Aplicação_mvc_Principal.Models
 {
-  public record Candidato
+  public class Candidato
   {
-    public int CandidatoId { get;set; }
-
-    public string NomeCandidato{get; set;}
-    public string estado_civil{get; set;}
+    public int candidatoId { get;set; }
+    public string nomeCandidato{get; set;}
+    public string estadoCivil{get; set;}
     public string genero{get; set;}
-    public DateTime  data_nascimento{get; set;}
+    public DateTime  dataNascimento{get; set;}
     public string cep { get;set; }
     public string endereco { get;set; }
     public string numero { get;set; }
@@ -18,14 +17,14 @@ namespace Aplicação_mvc_Principal.Models
     public string bairro { get;set; }
     public string cidade { get;set; }
     public string uf { get;set; }
-    public string telefone_fixo { get;set; }
-    public string telefone_movel { get;set; }
-    public string email{get; set;}
+    public string telefoneFixo { get;set; }
+    public string telefoneMovel { get;set; }
+    public string emailCandidato{get; set;}
     public string cpf{get; set;}
     public string rg{get; set;}
-    public Boolean possui_veiculo{get; set;}
-    public String habilitacao{get; set;}
-    public int vaga_id{get; set;}
+    public Boolean possuiVeiculo{get; set;}
+    public String tipoHabilitacao{get; set;}
+    public int vagaId{get; set;}
     public Vaga Cargo { get;set; }
   }
 }

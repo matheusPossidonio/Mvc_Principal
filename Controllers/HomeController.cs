@@ -21,9 +21,43 @@ namespace Aplicação_mvc_Principal.Controllers
 
         public async Task<IActionResult> Index()
         { 
+            //teste do crud de vagas 
+
+            /* Criação de de um objeto teste para testar o PostVagas(), passando um objeto do tipo vaga/tudo ok
+            Vaga vaga_teste_post = new Vaga() { vagaId= 0,nomeVaga="medico",descricaoVaga="Profissional que cura infermidades" } ;
+            ViewBag.Vagas = await ApiService.PostVagas(vaga_teste_post);
+            */
+
+            /*criação de um id e passado para o metodo deletevaga para testar seu funcionamento/tudo ok
+            int id = 1;
+            ViewBag.Vagas = await ApiService.DeleteVaga(id);
+            */
+
+            /*criação de um id e um objeto do tipo vaga passado para o metodo putvaga  para testar seu funcionamento/tudo ok
+            Vaga vaga_teste_put = new Vaga() {vagaId=5, nomeVaga="Cientista",descricaoVaga="Pessoa que produz ciencia" } ;
+            ViewBag.Vagas = await ApiService.PutVaga(5,vaga_teste_put);
+            */
+
+            //teste do getVagas
             ViewBag.Vagas = await ApiService.GetVagas();
-            ViewBag.Candidatos = await ApiService.GetCandidatos();
+
+
+            //--testes do crud dos candidatos
+            Vaga vaga_teste_post = new Vaga() { vagaId= 0,nomeVaga="medico",descricaoVaga="Profissional que cura infermidades" } ;
+             Candidato candidato_teste = new Candidato{
+                 nomeCandidato = "Elyzandra", estadoCivil = "solteira", genero = "feminino",
+                dataNascimento =  new DateTime(1979, 04, 19), cep = "5840755", endereco = "alto branco",
+                numero = "884444486", complemento = "", bairro = "alto branco", cidade = "campina grande",
+                uf = "pb", telefoneFixo = "33555889", telefoneMovel= " 8844556698", emailCandidato = "teste@gmail.com",
+                cpf = "11122233348", rg = "4588779", possuiVeiculo = true, tipoHabilitacao = "A", vagaId = 1};
             
+            ViewBag.Candidatos = await ApiService.PostCandidato(candidato_teste);
+           // ViewBag.Candidatos = await ApiService.DeleteCandidato(3);
+            ViewBag.Candidatos = await ApiService.GetCandidatos();
+
+            
+           
+            //ViewBag.Candidatos = await ApiService.PostCandidato(candidato_teste);
             return View();
         }
 
