@@ -37,21 +37,24 @@ namespace Aplicação_mvc_Principal.Controllers
             Vaga vaga_teste_put = new Vaga() {vagaId=5, nomeVaga="Cientista",descricaoVaga="Pessoa que produz ciencia" } ;
             ViewBag.Vagas = await ApiService.PutVaga(5,vaga_teste_put);
             */
-
+            //ViewBag.Vagas = await ApiService.PostVagas(vaga_teste_put);
             //teste do getVagas
             ViewBag.Vagas = await ApiService.GetVagas();
 
 
             //--testes do crud dos candidatos
-            Vaga vaga_teste_post = new Vaga() { vagaId= 0,nomeVaga="medico",descricaoVaga="Profissional que cura infermidades" } ;
+            //criando  um candidato que ser usado no teste
              Candidato candidato_teste = new Candidato{
-                 nomeCandidato = "Elyzandra", estadoCivil = "solteira", genero = "feminino",
+                 nomeCandidato = "josevaldo", estadoCivil = "casado", genero = "feminino",
                 dataNascimento =  new DateTime(1979, 04, 19), cep = "5840755", endereco = "alto branco",
-                numero = "884444486", complemento = "", bairro = "alto branco", cidade = "campina grande",
+                numero = "884444486", complemento = " 10", bairro = "alto branco", cidade = "campina grande",
                 uf = "pb", telefoneFixo = "33555889", telefoneMovel= " 8844556698", emailCandidato = "teste@gmail.com",
                 cpf = "11122233348", rg = "4588779", possuiVeiculo = true, tipoHabilitacao = "A", vagaId = 1};
             
-            ViewBag.Candidatos = await ApiService.PostCandidato(candidato_teste);
+            //no put o candidato deve ter o id
+            ViewBag.Candidatos = await ApiService.PutCandidato(10,candidato_teste);
+            //no post o objeto candidato nao deve possui o id caso coloque um ele nao adiciona na api 
+            //ViewBag.Candidatos = await ApiService.PostCandidato(candidato_teste);
            // ViewBag.Candidatos = await ApiService.DeleteCandidato(3);
             ViewBag.Candidatos = await ApiService.GetCandidatos();
 

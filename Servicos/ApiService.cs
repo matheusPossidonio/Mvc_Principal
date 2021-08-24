@@ -35,13 +35,12 @@ namespace Aplicação_mvc_Principal.Servicos
             return new List<Vaga>();
         }
 
-        public static async Task<List<Vaga>> DeleteVaga(int id)
+        public static async void DeleteVaga(int id)
         {
 
             HttpClient http = new HttpClient();
             string caminho = $"https://localhost:8080/vagas/{id}";
-            var responseDelete = await http.DeleteAsync(caminho);
-            return new List<Vaga>();
+            await http.DeleteAsync(caminho);
         }
 
         public static async Task<List<Vaga>> PutVaga(int id, Vaga novaVaga)
@@ -76,6 +75,10 @@ namespace Aplicação_mvc_Principal.Servicos
             var responsePost = await http.PostAsync("https://localhost:8080/Candidatos", jsonString);
             if (responsePost.IsSuccessStatusCode)
             {
+            }
+            else
+            {
+                var retorno  = await responsePost.Content.ReadAsStringAsync();
             }
             return new List<Candidato>();
         }

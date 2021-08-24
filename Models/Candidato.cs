@@ -1,5 +1,6 @@
 
 using System;
+using System.Text.Json.Serialization;
 
 namespace Aplicação_mvc_Principal.Models
 {
@@ -25,6 +26,7 @@ namespace Aplicação_mvc_Principal.Models
     public Boolean possuiVeiculo{get; set;}
     public String tipoHabilitacao{get; set;}
     public int vagaId{get; set;}
+    [JsonIgnore]
     public Vaga Cargo { get;set; }
   }
 }
